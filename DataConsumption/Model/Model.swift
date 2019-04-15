@@ -10,4 +10,5 @@ import Foundation
 
 struct Model {
     var funcoes: [String] = ["Marcas"]
+    var isLoaded: Bool = false
 }

@@ -14,6 +14,8 @@ class Handler {
     
     var marcas: [MarcasResponse] = []
     
+    var isLoaded: Bool = false
+    
     func loadData() {
         let session = URLSession.shared
         
@@ -27,9 +29,11 @@ class Handler {
                     let decoder = JSONDecoder()
                     guard let marcasResponse = try? decoder.decode([MarcasResponse].self, from: data) else { return }
                     self.marcas = marcasResponse
+                    self.isLoaded = true
                 }
             }
         }
+        
         task.resume()
     }
 }

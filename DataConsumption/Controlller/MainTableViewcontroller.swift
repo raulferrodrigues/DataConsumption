@@ -43,7 +43,7 @@ class MainTableViewcontroller: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        if indexPath.row == 0 && handler.isLoaded {
             performSegue(withIdentifier: "marcasSegue", sender: self)
         }
     }
