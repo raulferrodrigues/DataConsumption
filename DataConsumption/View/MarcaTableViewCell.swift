@@ -28,7 +28,7 @@ class MarcaTableViewCell: UITableViewCell {
     
     func setup(nome: String, codigo: String) {
         NomeLabel.text = nome
-        CodigoLabel.text = codigo
+        CodigoLabel.text = "cd: \(codigo)"
     }
 
 }

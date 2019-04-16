@@ -16,7 +16,7 @@ class MarcasTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        print(marcas.count)
+        //print(marcas.count)
     }
 
     // MARK: - Table view data source
