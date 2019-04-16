@@ -9,6 +9,10 @@
 import Foundation
 
 struct CarsResponse: Codable {
-    var carModel: String
-    var codigo: String
+    var modelos: [Car]
+}
+
+struct Car: Codable{
+    var nome: String
+    var codigo: Int
 }

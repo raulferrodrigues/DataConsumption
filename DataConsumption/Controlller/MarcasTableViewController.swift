@@ -11,6 +11,10 @@ import UIKit
 class MarcasTableViewController: UITableViewController {
     
     var marcas: [MarcasResponse] = []
+    let handler = Handler()
+    var carros: [Car] = []
+    
+    var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,24 @@ class MarcasTableViewController: UITableViewController {
         }
         cell.setup(nome: marcas[indexPath.row].nome, codigo: marcas[indexPath.row].codigo)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let brandCode = marcas[indexPath.row].codigo
+        handler.loadCars(brandId: Int(brandCode)!)
+        
+        if handler.carsLoaded && String(handler.loadedBrand) == brandCode {
+            handler.carsLoaded = false
+            carros = handler.carros
+            performSegue(withIdentifier: "carsSegue", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CarsTableViewController{
+            destination.cars = carros
+        }
     }
 
 }

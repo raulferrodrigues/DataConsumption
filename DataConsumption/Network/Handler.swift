@@ -14,8 +14,9 @@ class Handler {
     
     var marcas: [MarcasResponse] = []
     
-    var carros: [CarsResponse] = []
+    var carros: [Car] = []
     
+    var loadedBrand = 0
     var carsLoaded: Bool = false
     
     var isLoaded: Bool = false
@@ -41,13 +42,13 @@ class Handler {
         task.resume()
     }
     
-    func loadCars(carId: String){
-        let url = URL(string: "https://parallelum.com.br/fipe/api/v1/carros/marcas/59/modelos/\(carId)/modelos")
+    func loadCars(brandId: Int){
+        let carURL = URL(string: "https://parallelum.com.br/fipe/api/v1/carros/marcas/\(brandId)/modelos")
+        print(carURL as Any)
         
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url!){
-            (data, response, error) in
+        let task = session.dataTask(with: carURL!){ (data, response, error) in
             
             if let _ = error {
                 return
@@ -55,10 +56,11 @@ class Handler {
                 if let data = data{
                     let decoder = JSONDecoder()
                     guard let carsResponse = try?
-                        decoder.decode([CarsResponse].self, from: data)
+                        decoder.decode(CarsResponse.self, from: data)
                         else {return}
-                    self.carros = carsResponse
+                    self.carros = carsResponse.modelos
                     self.carsLoaded = true
+                    self.loadedBrand = brandId
                 }
             }
         }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3AF07C0C2264DDCF00FC6F60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF07C0B2264DDCF00FC6F60 /* AppDelegate.swift */; };
-		3AF07C0E2264DDCF00FC6F60 /* MainTableViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF07C0D2264DDCF00FC6F60 /* MainTableViewcontroller.swift */; };
 		3AF07C112264DDCF00FC6F60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AF07C0F2264DDCF00FC6F60 /* Main.storyboard */; };
 		3AF07C132264DDD000FC6F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF07C122264DDD000FC6F60 /* Assets.xcassets */; };
 		3AF07C162264DDD000FC6F60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AF07C142264DDD000FC6F60 /* LaunchScreen.storyboard */; };
@@ -20,12 +19,14 @@
 		3AF26FAC2265163900E78387 /* MarcasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF26FAB2265163900E78387 /* MarcasTableViewController.swift */; };
 		AC8CB6C8226636CA009DF896 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CB6C7226636CA009DF896 /* MainViewController.swift */; };
 		AC8CB6CA22663C5F009DF896 /* CarsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CB6C922663C5F009DF896 /* CarsResponse.swift */; };
+		AC8CB6CC22664165009DF896 /* CarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CB6CB22664165009DF896 /* CarsTableViewController.swift */; };
+		AC8CB6CF226642D8009DF896 /* CarroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CB6CD226642D8009DF896 /* CarroTableViewCell.swift */; };
+		AC8CB6D0226642D8009DF896 /* CarroTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8CB6CE226642D8009DF896 /* CarroTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3AF07C082264DDCF00FC6F60 /* DataConsumption.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataConsumption.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AF07C0B2264DDCF00FC6F60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3AF07C0D2264DDCF00FC6F60 /* MainTableViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewcontroller.swift; sourceTree = "<group>"; };
 		3AF07C102264DDCF00FC6F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AF07C122264DDD000FC6F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AF07C152264DDD000FC6F60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +39,9 @@
 		3AF26FAB2265163900E78387 /* MarcasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcasTableViewController.swift; sourceTree = "<group>"; };
 		AC8CB6C7226636CA009DF896 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AC8CB6C922663C5F009DF896 /* CarsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsResponse.swift; sourceTree = "<group>"; };
+		AC8CB6CB22664165009DF896 /* CarsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewController.swift; sourceTree = "<group>"; };
+		AC8CB6CD226642D8009DF896 /* CarroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarroTableViewCell.swift; sourceTree = "<group>"; };
+		AC8CB6CE226642D8009DF896 /* CarroTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarroTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +88,9 @@
 		3AF07C1D2264E08F00FC6F60 /* Controlller */ = {
 			isa = PBXGroup;
 			children = (
-				3AF07C0D2264DDCF00FC6F60 /* MainTableViewcontroller.swift */,
 				3AF26FAB2265163900E78387 /* MarcasTableViewController.swift */,
 				AC8CB6C7226636CA009DF896 /* MainViewController.swift */,
+				AC8CB6CB22664165009DF896 /* CarsTableViewController.swift */,
 			);
 			path = Controlller;
 			sourceTree = "<group>";
@@ -96,6 +100,8 @@
 			children = (
 				3AF26FA522650F0D00E78387 /* MarcaTableViewCell.swift */,
 				3AF26FA9226511FA00E78387 /* FuncaoTableViewCell.swift */,
+				AC8CB6CD226642D8009DF896 /* CarroTableViewCell.swift */,
+				AC8CB6CE226642D8009DF896 /* CarroTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AF07C162264DDD000FC6F60 /* LaunchScreen.storyboard in Resources */,
+				AC8CB6D0226642D8009DF896 /* CarroTableViewCell.xib in Resources */,
 				3AF07C132264DDD000FC6F60 /* Assets.xcassets in Resources */,
 				3AF07C112264DDCF00FC6F60 /* Main.storyboard in Resources */,
 			);
@@ -203,11 +210,12 @@
 				3AF26FA22265038E00E78387 /* Handler.swift in Sources */,
 				3AF26FAA226511FA00E78387 /* FuncaoTableViewCell.swift in Sources */,
 				3AF26FA42265060800E78387 /* MarcasResponse.swift in Sources */,
+				AC8CB6CC22664165009DF896 /* CarsTableViewController.swift in Sources */,
 				3AF26FA622650F0D00E78387 /* MarcaTableViewCell.swift in Sources */,
 				3AF26FA82265104900E78387 /* Model.swift in Sources */,
 				AC8CB6C8226636CA009DF896 /* MainViewController.swift in Sources */,
 				AC8CB6CA22663C5F009DF896 /* CarsResponse.swift in Sources */,
-				3AF07C0E2264DDCF00FC6F60 /* MainTableViewcontroller.swift in Sources */,
+				AC8CB6CF226642D8009DF896 /* CarroTableViewCell.swift in Sources */,
 				3AF07C0C2264DDCF00FC6F60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

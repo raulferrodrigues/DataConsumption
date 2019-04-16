@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handler.loadData()
-
+        //handler.loadCars(carId: "189")
         // Do any additional setup after loading the view.
     }
     
@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
         if handler.isLoaded{
             performSegue(withIdentifier: "brandsSegue", sender: self)
         }
+    }
+    @IBAction func toAston(_ sender: Any) {
+        print(handler.carros)
     }
     
 
