@@ -16,8 +16,12 @@ class Handler {
     
     var carros: [Car] = []
     
+    var modelos: [ModelResponse] = []
+    
     var loadedBrand = 0
     var carsLoaded: Bool = false
+    var loadedModel = 0
+    var modelLoaded: Bool = false
     
     var isLoaded: Bool = false
     
@@ -61,6 +65,31 @@ class Handler {
                     self.carros = carsResponse.modelos
                     self.carsLoaded = true
                     self.loadedBrand = brandId
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func loadCarModels(brandId: Int, carId: Int){
+        let modelURL = URL(string: "https://parallelum.com.br/fipe/api/v1/carros/marcas/\(brandId)/modelos/\(carId)/anos")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: modelURL!){ (data, response, error) in
+            
+            if let _ = error {
+                return
+            } else {
+                if let data = data{
+                    let decoder = JSONDecoder()
+                    guard let modelResponse = try?
+                        decoder.decode([ModelResponse].self, from: data)
+                        else {return}
+                    self.modelos = modelResponse
+                    self.carsLoaded = true
+                    self.loadedModel = carId
                 }
             }
         }

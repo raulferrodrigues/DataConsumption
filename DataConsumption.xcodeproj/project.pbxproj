@@ -22,6 +22,8 @@
 		AC8CB6CC22664165009DF896 /* CarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CB6CB22664165009DF896 /* CarsTableViewController.swift */; };
 		AC8CB6CF226642D8009DF896 /* CarroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CB6CD226642D8009DF896 /* CarroTableViewCell.swift */; };
 		AC8CB6D0226642D8009DF896 /* CarroTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8CB6CE226642D8009DF896 /* CarroTableViewCell.xib */; };
+		AC8CB6D222666FBC009DF896 /* ModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CB6D122666FBC009DF896 /* ModelResponse.swift */; };
+		AC8CB6D422667311009DF896 /* ModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CB6D322667311009DF896 /* ModelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		AC8CB6CB22664165009DF896 /* CarsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewController.swift; sourceTree = "<group>"; };
 		AC8CB6CD226642D8009DF896 /* CarroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarroTableViewCell.swift; sourceTree = "<group>"; };
 		AC8CB6CE226642D8009DF896 /* CarroTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarroTableViewCell.xib; sourceTree = "<group>"; };
+		AC8CB6D122666FBC009DF896 /* ModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelResponse.swift; sourceTree = "<group>"; };
+		AC8CB6D322667311009DF896 /* ModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			children = (
 				3AF26FAB2265163900E78387 /* MarcasTableViewController.swift */,
 				AC8CB6C7226636CA009DF896 /* MainViewController.swift */,
+				AC8CB6D322667311009DF896 /* ModelTableViewCell.swift */,
 				AC8CB6CB22664165009DF896 /* CarsTableViewController.swift */,
 			);
 			path = Controlller;
@@ -120,6 +125,7 @@
 				3AF26FA12265038E00E78387 /* Handler.swift */,
 				3AF26FA32265060800E78387 /* MarcasResponse.swift */,
 				AC8CB6C922663C5F009DF896 /* CarsResponse.swift */,
+				AC8CB6D122666FBC009DF896 /* ModelResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 			files = (
 				3AF26FAC2265163900E78387 /* MarcasTableViewController.swift in Sources */,
 				3AF26FA22265038E00E78387 /* Handler.swift in Sources */,
+				AC8CB6D222666FBC009DF896 /* ModelResponse.swift in Sources */,
 				3AF26FAA226511FA00E78387 /* FuncaoTableViewCell.swift in Sources */,
 				3AF26FA42265060800E78387 /* MarcasResponse.swift in Sources */,
 				AC8CB6CC22664165009DF896 /* CarsTableViewController.swift in Sources */,
@@ -217,6 +224,7 @@
 				AC8CB6CA22663C5F009DF896 /* CarsResponse.swift in Sources */,
 				AC8CB6CF226642D8009DF896 /* CarroTableViewCell.swift in Sources */,
 				3AF07C0C2264DDCF00FC6F60 /* AppDelegate.swift in Sources */,
+				AC8CB6D422667311009DF896 /* ModelTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

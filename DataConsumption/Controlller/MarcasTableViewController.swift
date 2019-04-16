@@ -40,7 +40,8 @@ class MarcasTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let brandCode = marcas[indexPath.row].codigo
+        index = indexPath.row
+        let brandCode = marcas[index].codigo
         handler.loadCars(brandId: Int(brandCode)!)
         
         if handler.carsLoaded && String(handler.loadedBrand) == brandCode {
@@ -53,6 +54,8 @@ class MarcasTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CarsTableViewController{
             destination.cars = carros
+            destination.brand = marcas[index].nome
+            destination.brandCode = marcas[index].codigo
         }
     }
 
