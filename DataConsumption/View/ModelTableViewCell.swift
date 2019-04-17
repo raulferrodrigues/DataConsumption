@@ -1,19 +1,16 @@
 //
-//  MarcaTableViewCell.swift
+//  ModelTableViewCell.swift
 //  DataConsumption
 //
-//  Created by Raul Rodrigues on 4/15/19.
+//  Created by Alexandre Scheer Bing on 16/04/19.
 //  Copyright © 2019 Raul Rodrigues. All rights reserved.
 //
 
 import UIKit
 
-class MarcaTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var NomeLabel: UILabel!
-    
-    
-    
+class ModelTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var modelLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,8 +22,9 @@ class MarcaTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setup(nome: String) {
-        NomeLabel.text = nome
+    func setUpCell(model: String){
+        modelLabel.text = model
+        
     }
-
+    
 }

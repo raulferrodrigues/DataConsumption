@@ -11,7 +11,6 @@ import UIKit
 class CarroTableViewCell: UITableViewCell {
 
     @IBOutlet weak var NomeLabel: UILabel!
-    @IBOutlet weak var CodigoLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +25,6 @@ class CarroTableViewCell: UITableViewCell {
     
     func setup(nome: String, codigo: String) {
         NomeLabel.text = nome
-        CodigoLabel.text = codigo
     }
     
 }

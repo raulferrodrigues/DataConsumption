@@ -31,9 +31,6 @@ class MainViewController: UIViewController {
             performSegue(withIdentifier: "brandsSegue", sender: self)
         }
     }
-    @IBAction func toAston(_ sender: Any) {
-        print(handler.carros)
-    }
     
 
     /*

@@ -12,6 +12,7 @@ class CarsTableViewController: UITableViewController {
 
     var brand = ""
     var brandCode = ""
+    var carName = ""
     var carCode : String = ""
     var cars : [Car] = []
     var index = 0
@@ -42,30 +43,57 @@ class CarsTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .blue
+        let label = UILabel(frame: CGRect(x: 0, y: 10, width: tableView.bounds.size.width, height: 30))
+        label.text = "\(brand)"
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .white
+        label.textAlignment = .center
+        view.addSubview(label)
+        
+        return view
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return brand
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+//
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return brand
+//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
-        let carCode = cars[index].codigo
-        handler.loadCarModels(brandId: Int(brandCode)!, carId: carCode)
+        carCode = "\(cars[index].codigo)"
+        carName = cars[index].nome
+        handler.loadCarModels(brandId: Int(brandCode)!, carId: Int(carCode)!)
         
-        if handler.carsLoaded && String(handler.loadedBrand) == brandCode {
-            handler.carsLoaded = false
+        while !handler.modelLoaded{
+
+        }
+        
+        if handler.modelLoaded {
+            handler.modelLoaded = false
+            print(handler.modelos)
             models = handler.modelos
-            performSegue(withIdentifier: "carsSegue", sender: self)
+            performSegue(withIdentifier: "modelsSegue", sender: self)
         }
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ModelTableViewCell{
-            
+        if let destination = segue.destination as? ModelTableViewController{
+            destination.brandCode = brandCode
+            destination.brandName = brand
+            destination.carName = carName
+            destination.carCode = carCode
+            destination.models = models
         }
     }
     

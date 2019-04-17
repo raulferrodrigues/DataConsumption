@@ -18,12 +18,18 @@ class Handler {
     
     var modelos: [ModelResponse] = []
     
+    var imageURL : String = ""
+    
+    var detalhes: DetailResponse = DetailResponse(Valor: "", Marca: "", Modelo: "", AnoModelo: 0, Combustivel: "", CodigoFipe: "", MesReferencia: "", TipoVeiculo: 0, SiglaCombustivel: "")
+    
     var loadedBrand = 0
     var carsLoaded: Bool = false
     var loadedModel = 0
     var modelLoaded: Bool = false
+    var detailLoaded: Bool = false
     
     var isLoaded: Bool = false
+    var imageLoaded: Bool = false
     
     func loadData() {
         let session = URLSession.shared
@@ -61,7 +67,8 @@ class Handler {
                     let decoder = JSONDecoder()
                     guard let carsResponse = try?
                         decoder.decode(CarsResponse.self, from: data)
-                        else {return}
+                        else {
+                            return}
                     self.carros = carsResponse.modelos
                     self.carsLoaded = true
                     self.loadedBrand = brandId
@@ -74,6 +81,7 @@ class Handler {
     
     func loadCarModels(brandId: Int, carId: Int){
         let modelURL = URL(string: "https://parallelum.com.br/fipe/api/v1/carros/marcas/\(brandId)/modelos/\(carId)/anos")
+    
         
         let session = URLSession.shared
         
@@ -88,12 +96,63 @@ class Handler {
                         decoder.decode([ModelResponse].self, from: data)
                         else {return}
                     self.modelos = modelResponse
-                    self.carsLoaded = true
+                    self.modelLoaded = true
                     self.loadedModel = carId
                 }
             }
         }
         
+        task.resume()
+    }
+    
+    func loadDetails(brandId: String, carId: String, modelId: String){
+        let modelURL = URL(string: "https://parallelum.com.br/fipe/api/v1/carros/marcas/\(brandId)/modelos/\(carId)/anos/\(modelId)")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: modelURL!){ (data, response, error) in
+            
+            if let _ = error {
+                return
+            } else {
+                if let data = data{
+                    let decoder = JSONDecoder()
+                    guard let detailResponse = try?
+                        decoder.decode(DetailResponse.self, from: data)
+                        else {return}
+                    self.detalhes = detailResponse
+                    self.detailLoaded = true
+                }
+            }
+        }
+        
+        task.resume()
+        
+    }
+    
+    func getRandomImage(){
+        let imageURL = URL(string: "http://www.splashbase.co/api/v1/images/random?images_only=true")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: imageURL!) {(data, response, error) in
+            if let error = error {
+                print(error)
+                print(imageURL)
+                return
+            } else {
+                if let data = data{
+                    let decoder = JSONDecoder()
+                    guard let imageResponse = try?
+                        decoder.decode(ImageResponse.self, from: data)
+                    else {
+                        return}
+                print(imageResponse)
+                self.imageURL = imageResponse.url
+                self.imageLoaded = true
+                }
+            }
+        }
         task.resume()
     }
 }
